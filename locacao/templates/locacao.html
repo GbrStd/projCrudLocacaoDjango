@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<ul>
+    {% for locacao in locacao %}
+    <a href="{% url 'update_locacao' locacao.id %}">
+        <li> {{ locacao.cliente }} - {{ locacao.carro }} - {{ locacao.data_locacao }} - R${{ locacao.valor }} - {{ locacao.data_devolucao }} </li>
+    </a>
+    {% endfor %}
+</ul>
+
+<a class="btn btn-primary" href="{% url 'create_locacao' %}">Novo</a>
+{% endblock %}
